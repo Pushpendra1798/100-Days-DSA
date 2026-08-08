@@ -3,16 +3,17 @@ class ShiftSpecialCharacterToTheEnd {
     public static void main(String[] args) {
         try (Scanner sc = new Scanner(System.in)) {
             String str = sc.nextLine();
-            String alphaNum = "";
-            String special = "";
+            StringBuilder alphaNum = new StringBuilder();
+            StringBuilder special = new StringBuilder();
             for(char ch : str.toCharArray()) {
-                if(ch != '@' && ch != '#' && ch != '!') {
-                    alphaNum += ch;
+                // if(ch != '@' && ch != '#' && ch != '!') {
+                if(Character.isLetterOrDigit(ch)) { // we have inbuild method for checking letter or digit
+                    alphaNum.append(ch);
                 } else {
-                    special += ch;
+                    special.append(ch);
                 }
             }
-            System.out.println(alphaNum + special);
+            System.out.println(alphaNum.append(special));
         }
     }
 }
