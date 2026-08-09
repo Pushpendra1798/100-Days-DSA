@@ -13,7 +13,7 @@ class Day01_Group_Anagrams {
             // }
 
             // map.get(key).add(str);
-            map.computeIfAbsent(key, k -> new ArrayList<>()).add(str); // Replace above three lines ofcode
+            map.computeIfAbsent(key, k -> new ArrayList<>()).add(str);
         }
         return new ArrayList<>(map.values());
     }
