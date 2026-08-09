@@ -1,6 +1,7 @@
 import java.util.*;
 class Day02_TwoSum {
     public static int[] twoSum(int[] nums, int target) {
+        //HashMap optimize solution
         HashMap<Integer, Integer> map = new HashMap<>();
         for(int i=0; i<nums.length; i++) {
             int complements = target - nums[i];
