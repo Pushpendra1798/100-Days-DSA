@@ -1,17 +1,37 @@
 import java.util.*;
 class Day04_LongestSubarrayWithSumK {
+
+    // Count the number of Longest Subarray whose Sum equals K
     public static int longestSubarrayWithSumK(int[] nums, int k) {
-        int count = 0, prefix = 0;
+        int count = 0, prefixSum = 0;
         HashMap<Integer, Integer> map = new HashMap<>();
         map.put(0, 1);
         for(int num : nums) {
-            prefix += num;
-            if(map.containsKey(prefix-k)) {
-                count += map.get(prefix-k);
+            prefixSum += num;
+            if(map.containsKey(prefixSum-k)) {
+                count += map.get(prefixSum-k);
             }
-            map.put(prefix, map.getOrDefault(prefix, 0)+1);
+            map.put(prefixSum, map.getOrDefault(prefixSum, 0)+1);
         }
         return count;
+    }
+
+    // Determine the length of Longest Subarray whose Sum equals K
+    public static int longestSubarrayWithSumK1(int[] nums, int k) {
+        int maxLenth = 0, prefixSum = 0;
+        HashMap<Integer, Integer> map = new HashMap<>();
+        map.put(0, -1);
+        for(int i=0; i<nums.length; i++) {
+            prefixSum += nums[i];
+            if(map.containsKey(prefixSum-k)) {
+                int length = i - map.get(prefixSum-k);
+                maxLenth = Math.max(maxLenth, length);
+            }
+            if(!map.containsKey(prefixSum)) {
+                map.put(prefixSum, i);
+            }
+        }
+        return maxLenth;
     }
     public static void main(String[] args) {
         try(Scanner sc = new Scanner(System.in)) {
@@ -24,7 +44,7 @@ class Day04_LongestSubarrayWithSumK {
             }
             System.out.print("Enter Sum K: ");
             int K = sc.nextInt();
-            System.out.println("Longest Subarray With Sum K: " + longestSubarrayWithSumK(nums, K));
+            System.out.println("Longest Subarray With Sum K: " + longestSubarrayWithSumK1(nums, K));
         }
     }
 }
