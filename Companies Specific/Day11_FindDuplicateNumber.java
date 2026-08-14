@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Day11_FindDuplicateNumber {
 
-    // XOR Method --------->
+    // XOR Method ---------->
     public static int duplicateNumber(int[] nums) {
         int xor = 0;
         // XOR array elements
@@ -18,8 +18,6 @@ public class Day11_FindDuplicateNumber {
         }
         return xor;
     }
-
-
 
 
     //Floyd's Cycle Algorithm ------------>
@@ -42,8 +40,6 @@ public class Day11_FindDuplicateNumber {
         return slow;
     }
 
-
-    
 
     public static void main(String[] args) {
         try (Scanner sc = new Scanner(System.in)) {
