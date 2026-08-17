@@ -129,6 +129,4 @@ Every day is one step closer to becoming a better problem solver and software en
 
 ## 📌 Current Status
 
-**Day 15 / 100** 🚀
-
 > The journey continues...
